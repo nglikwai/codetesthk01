@@ -66,4 +66,6 @@ const AppWrapper = styled(props => <div {...props} />)`
 
 const Title = styled.h2`
     margin:12px 0;
+    color: ${({ theme }) => theme.primaryColor};
+    transition: 2s;
 `
