@@ -14,7 +14,7 @@ export interface AppState {
     filter: App[]
 }
 
-export type FetchAppRequestPayload = number
+export type FetchAppRequestPayload = number | null
 
 export type FetchAppSuccessPayload = { apps: App[] }
 

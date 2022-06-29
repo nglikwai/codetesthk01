@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { useTheme } from '../../ThemeProvider'
 import { App } from '../../type'
 import AppCard from '../AppCard'
-import { fetchAppRequest, searchApp } from '../../redux/app'
+import { fetchAppRequest } from '../../redux/app'
 import { useDispatch, useSelector } from 'react-redux'
 import { State } from '../../type'
 
