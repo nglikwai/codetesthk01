@@ -12,9 +12,10 @@ export interface AppState {
     result: App[]
     error: any
     filter: App[]
+    fetchPage: number
 }
 
-export type FetchAppRequestPayload = number | null
+export type FetchAppRequestPayload = number
 
 export type FetchAppSuccessPayload = { apps: App[] }
 

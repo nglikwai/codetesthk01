@@ -4,15 +4,17 @@ const initialState: AppState = {
     fetching: false,
     result: [],
     error: '',
-    filter: []
+    filter: [],
+    fetchPage: 2
 }
 
 export const AppSlice = createSlice({
     name: 'app',
     initialState,
     reducers: {
-        [AppTypes.fetchAppRequest]: (state, action: PayloadAction<FetchAppSuccessPayload>) => {
+        [AppTypes.fetchAppRequest]: (state, action: PayloadAction<FetchAppRequestPayload>) => {
             state.fetching = true
+            state.fetchPage = action.payload
         },
         [AppTypes.fetchAppSuccess]: (state, action: PayloadAction<FetchAppSuccessPayload>) => {
             state.fetching = false
