@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+
       <ThemeProvider>
         <GlobalStyle />
         <ReduxProvider store={store}>

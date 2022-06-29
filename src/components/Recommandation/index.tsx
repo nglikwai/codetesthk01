@@ -18,8 +18,8 @@ const Recommandation = ({ app, direction = 'horizontal', pagnate = false }: Prop
     const [currentPage, setCurrentPage] = useState(2)
     const dispatch = useDispatch()
     const { result, filter } = useSelector((state: State) => state.app)
-    const fetchMoreData = () => {
 
+    const fetchMoreData = () => {
         dispatch(fetchAppRequest(currentPage))
         setCurrentPage(currentPage + 1)
     }
@@ -33,7 +33,7 @@ const Recommandation = ({ app, direction = 'horizontal', pagnate = false }: Prop
             {pagnate && <InfiniteScroll
                 dataLength={app.length}
                 next={fetchMoreData}
-                hasMore={result.length === filter.length ? true : false}
+                hasMore={(result.length === filter.length || filter.length === 0) ? true : false}
                 loader={<h4>Loading...</h4>}
             >
                 <></>
