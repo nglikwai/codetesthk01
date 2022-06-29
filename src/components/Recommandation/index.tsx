@@ -7,7 +7,7 @@ import AppCard from '../AppCard'
 import { fetchAppRequest } from '../../redux/app'
 import { useDispatch, useSelector } from 'react-redux'
 import { State } from '../../type'
-
+import Loader from '../Loader'
 type Props = {
     app: App[]
     direction?: string
@@ -33,8 +33,13 @@ const Recommandation = ({ app, direction = 'horizontal', pagnate = false }: Prop
             {pagnate && <InfiniteScroll
                 dataLength={app.length}
                 next={fetchMoreData}
-                hasMore={(result.length === filter.length || filter.length === 0) ? true : false}
-                loader={<h4>Loading...</h4>}
+                hasMore={((result.length === filter.length || filter.length === 0) && result.length < 99) ? true : false}
+                loader={<Loader />}
+                endMessage={
+                    <p style={{ textAlign: 'center', color: '#ccc' }}>
+                        All
+                    </p>
+                }
             >
                 <></>
             </InfiniteScroll>}
