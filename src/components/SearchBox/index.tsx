@@ -37,25 +37,26 @@ export default SearchBox
 
 const Search = styled.input`
 &:hover+div{display:none}
-  width:95%;
+  width:90%;
   height:36px;
   background-color: #ddd;
   border:none;
   border-radius: 4px;
-  padding:0 10px;
+  padding:0 8px;
+  margin:10px;
+  font-size: 1rem;
 `
 
 const SearchWrapper = styled.div`
-  height: 40px;
+  height: 54px;
   background-color: #eee;
   width:100%;
-  padding:10px;
-  border:1px solid #ccc;
+  border-bottom:1px solid #ccc;
   position: relative;
 `
 const Placeholder = styled.div`
   &:active{display:none}
-  width:100%;
+  width:90%;
   height:56px;
   display: flex;
   justify-content: center;
