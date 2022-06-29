@@ -39,20 +39,24 @@ const Search = styled.input`
 &:hover+div{display:none}
   width:90%;
   height:36px;
-  background-color: #ddd;
+  background-color:  ${({ theme }) => theme.tertaryBackgroundColor};
   border:none;
   border-radius: 4px;
   padding:0 8px;
   margin:10px;
   font-size: 1rem;
+  transition:  2s;
+
 `
 
 const SearchWrapper = styled.div`
   height: 54px;
-  background-color: #eee;
+  background-color: ${({ theme }) => theme.secondaryBackgroundColor};
   width:100%;
   border-bottom:1px solid #ccc;
   position: relative;
+  transition:  2s;
+
 `
 const Placeholder = styled.div`
   &:active{display:none}

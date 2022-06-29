@@ -25,3 +25,8 @@ export type State = {
         error: Error
     }
 }
+
+export enum Direction {
+    vertical = 'vertical',
+    horizontal = 'horizontal'
+}

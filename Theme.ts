@@ -1,7 +1,14 @@
 export const lightTheme = {
-    backgroundColor: '#fff'
+    primaryColor: '#111',
+    backgroundColor: '#fff',
+    secondaryBackgroundColor: '#eee',
+    tertaryBackgroundColor: '#ddd',
 }
 
 export const darkTheme = {
-    backgroundColor: '#000'
+    primaryColor: '#ddd',
+    backgroundColor: '#000',
+    secondaryBackgroundColor: '#111',
+    tertaryBackgroundColor: '#333',
+
 }

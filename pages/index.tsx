@@ -2,12 +2,11 @@ import type { NextPage } from 'next'
 import styled from 'styled-components'
 import SearchBox from '../src/components/SearchBox'
 import Recommandation from '../src/components/Recommandation'
-import { useTheme, useUpdateTheme } from '../src/ThemeProvider'
+import { useUpdateTheme } from '../src/ThemeProvider'
 import { useEffect } from 'react'
-import { fetchAppRequest } from '../src/redux/app'
 import { useDispatch, useSelector } from 'react-redux'
 import * as R from 'ramda'
-import { State } from '../src/type'
+import { State, Direction } from '../src/type'
 import { fetchAppSuccess } from '../src/redux/app'
 import Head from 'next/head'
 
@@ -22,8 +21,6 @@ const Home: NextPage<Props> = ({ recommandation = [] }) => {
   useEffect(() => {
     dispatch(fetchAppSuccess({ apps: recommandation }))
   }, [recommandation])
-  const theme = useTheme()
-  const toggleDark = useUpdateTheme()
 
   return (
     <>
@@ -71,14 +68,14 @@ const Home: NextPage<Props> = ({ recommandation = [] }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <PageWrapper theme={theme}>
+      <PageWrapper >
         <SearchBox />
         <Recommandation app={recommandation} />
         <Recommandation
           app={R.isEmpty(filter) ? recommandation : filter}
-          direction='vertical'
+          direction={Direction.vertical}
           pagnate={true} />
-        {/* <button onClick={toggleDark}>Dark mode</button> */}
+        {/* <button onClick={useUpdateTheme()}>Dark mode</button> */}
       </PageWrapper>
     </>
   )
@@ -86,9 +83,10 @@ const Home: NextPage<Props> = ({ recommandation = [] }) => {
 
 export default Home
 
-const PageWrapper = styled(props => <div {...props} />)`
-  background-color: ${props => props.theme.backgroundColor};
-  height:1000px;
+const PageWrapper = styled.div`
+  background-color: ${({ theme }) => theme.backgroundColor};
+  transition:  2s;
+
 `
 
 export async function getServerSideProps() {
